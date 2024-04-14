@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Sriracha';
+  src: url('./assets/Sriracha-Regular.woff') format('woff');
+  /* Add additional src lines for other formats if available */
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+    overflow: hidden;
+  /* Use the custom font family */
+
+}
