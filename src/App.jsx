@@ -2,7 +2,10 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { Route, Routes } from "react-router-dom";
 
 import Homie from './homie/Homie';
-import Blog from './blog/Blog'
+import AllPosts from './homie/components/AllPosts';
+import OnePost from "./homie/components/OnePost"
+import Blog from './blog/Blog';
+
 
 
 function App() {
@@ -17,6 +20,7 @@ function App() {
 
         < Route path="/" element={<Homie />} />
         < Route path="/blog" element={<Blog />} />
+        < Route path="/blog/:slug" element={<OnePost />} />
       </Routes>
 
     </>

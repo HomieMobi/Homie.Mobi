@@ -15,7 +15,7 @@ const Menu = ({ isOpen, handleIconClick, toggleMenu }) => {
 
   return (
     <div className={`z-30 absolute top-0 right-0 w-full h-full transform transition-transform duration-300 flex items-end ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-      <div className=" h-full w-full  p-2 py-8 border-2 bg-white border-black flex flex-col">
+      <div className="h-full w-full  p-2 py-8 border-2 bg-white border-black flex flex-col">
         <div className='border-b-2 border-black w-full flex gap-2 p-4 items-center cursor-pointer hover:bg-gray-100' onClick={() => { handleIconClick('house'); toggleMenu(); setIsDropdownOpen(false); }}>
           <ImDiamonds className='text-2xl' />
           <div className='h-fit text-2xl'>Home</div>
@@ -39,9 +39,10 @@ const Menu = ({ isOpen, handleIconClick, toggleMenu }) => {
               <p className={`cursor-pointer ${selectedTab === 'Our Name' ? 'underline' : ''}`} onClick={() => setSelectedTab('Our Name')}>Our Name</p>
               <p className={`cursor-pointer ${selectedTab === 'Services' ? 'underline' : ''}`} onClick={() => setSelectedTab('Services')}>Services</p>
               <p className={`cursor-pointer ${selectedTab === 'Mission' ? 'underline' : ''}`} onClick={() => setSelectedTab('Mission')}>Mission</p>
-              <Link to="/blog">
+              <p className={`cursor-pointer ${selectedTab === 'Blog' ? 'underline' : ''}`} onClick={() => setSelectedTab('Blog')}>Blog</p>
+              {/* <Link to="/blog">
                 <p className={`cursor-pointer ${selectedTab === 'Disclaimer' ? 'underline' : ''}`}>Blog</p>
-              </Link>
+              </Link> */}
             </div>
             {selectedTab === 'Our Name' && (
               <>
@@ -63,7 +64,50 @@ const Menu = ({ isOpen, handleIconClick, toggleMenu }) => {
                 </div>
               </>
             )}
-            {/* Render other tab contents here based on selectedTab */}
+            {selectedTab === 'Services' && (
+
+              <div className="flex flex-row justify-between gap-4 px-2 bg-white py-2">
+                <div className="list-disc text-md flex flex-col gap-2">
+                  <li>Website Design</li>
+                  <li>SEO</li>
+                  <li>Hosting</li>
+                  <li>Payment <span className='pl-4'>Integration</span></li>
+                  <li>Business Email</li>
+                  <li>Advertisements</li>
+                </div>
+                <div className="list-disc text-md flex flex-col gap-2">
+                  <li>Link in Domain</li>
+                  <li>Domain Provider</li>
+                  <li>Mobi Websites</li>
+                  <li>Google Analytics</li>
+                  <li>Social Media <span className='pl-5'>Marketing</span></li>
+                </div>
+              </div>
+
+            )}
+            {selectedTab === 'Mission' && (
+              <div className='flex flex-col gap-4'>
+                <div className='flex flex-col bg-white rounded-xl p-4 border-2 shadow-lg justify-center'>
+                  <div></div>
+                  <div>
+                    The homies want to offer a creative alternative to the link in bio process. We want to use code to bring other peoples vision to life. We want to make homies along the way!
+                  </div>
+                </div>
+                <div className='p-2 text-sm'>
+                  <span className='text-red-500 text-xl'>*</span>Not sure if we can help? Feel free to reach out with any questions to our support email: {' '}
+                  <a href="mailto:support@homie.mobi" className="underline">support@homie.mobi</a>
+                </div>
+
+              </div>
+            )}
+            {selectedTab === 'Blog' && (
+              <div className='flex justify-center p-4'>
+                <Link to="/blog">
+                  COMING SOON
+                </Link>
+
+              </div>
+            )}
           </div>
         )}
         <div className='  justify-end items-start flex flex-col h-5/6 cursor-pointer hover:bg-gray-100 w-full'>

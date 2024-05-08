@@ -75,7 +75,8 @@ const SearchBar = ({ handleIconClick, setSelectedProduct }) => {
             <input
               type="text"
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => setSearchTerm(e.target.value.trim())}
+
               onClick={handleSearchInputClick}
               onFocus={handleSearchInputClick}
               className="w-full h-full rounded-xl px-2 justify-end flex items-end"
