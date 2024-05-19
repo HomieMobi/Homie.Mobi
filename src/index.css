@@ -10,12 +10,10 @@
   font-style: normal;
 }
 
-html,
-body {
+.homie-body {
   margin: 0;
   padding: 0;
   height: 100%;
-    overflow: hidden;
-  /* Use the custom font family */
-
+  overflow: hidden;
+  /* Add any other custom styles for the Homie component */
 }

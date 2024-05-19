@@ -69,7 +69,7 @@ const SearchBar = ({ handleIconClick, setSelectedProduct }) => {
 
   return (
     <div className="w-full h-1/2 bg-gray-500 pb-0 flex flex-col justify-center border-2">
-      <div className="bg-gray-200 w-full h-3/4 pr-2 flex flex-row rounded-3xl items-center justify-center">
+      <div className="bg-gray-200 w-full h-3/4 pr-2 flex flex-row rounded- items-center justify-center border-b-2 border-gray-200">
         <div className='flex flex-row h-full'>
           <div className={`bg-white w-1/2 items-center h-full rounded-xl flex flex-row justify-center ${borderColor} border-2`}>
             <input

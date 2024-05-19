@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'post',
@@ -23,7 +23,7 @@ export default defineType({
       name: 'author',
       title: 'Author',
       type: 'reference',
-      to: {type: 'author'},
+      to: { type: 'author' },
     }),
     defineField({
       name: 'mainImage',
@@ -37,12 +37,18 @@ export default defineType({
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      of: [{ type: 'reference', to: { type: 'category' } }],
     }),
     defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      description: 'A short description of the post',
     }),
     defineField({
       name: 'body',
@@ -56,10 +62,15 @@ export default defineType({
       title: 'title',
       author: 'author.name',
       media: 'mainImage',
+      description: 'description',  // Add description here
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      const { title, author, media, description } = selection;
+      return {
+        title: title,
+        media: media,
+        subtitle: `${author ? `by ${author} | ` : ''}${description ? description : ''}`, // Include description in subtitle
+      };
     },
   },
-})
+});

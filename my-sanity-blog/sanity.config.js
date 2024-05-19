@@ -17,7 +17,7 @@ export default defineConfig({
   // Add CORS configuration here
   api: {
     cors: {
-      allowOrigins: ['http://localhost:3000', 'https://your-firebase-domain.firebaseapp.com'],
+      allowOrigins: ['http://localhost:3000', 'https://homie.mobi'],
       // Add other CORS options if needed
     },
   },
