@@ -10,9 +10,8 @@ function Blog() {
 
   return (
     <>
-      {/* <div className='w-screen h-screen flex justify-center'> */}
-      <div className='w-full absolute border-2 h-full border-black rounded md:w-1/2 lg:w-1/3 max-w-[400px] max-h-[800px] justify-center overflow-y-auto '>
-        <div className='flex flex-col w-full bg-red-200'>
+      <div className='w-full absolute border-2 h-full border-black rounded md:w-1/2 lg:w-1/3 max-w-[400px] max-h-[800px] justify-center overflow-hidden'>
+        <div className='flex flex-col w-full bg-red-200 overflow-hidden'>
           {/* Header */}
           <div className='w-full h- bg-white flex flex-row '>
             <div className="font-sriracha text-2xl w-full flex justify-start pl-6 items-center h-fit py-4">
@@ -35,21 +34,22 @@ function Blog() {
             </Link>
           </div>
         </div>
-        <div className='w-full flex flex-row bg-gray-100 px-2 py-2  justify-between text-black border-b-2'>
+        <div className='w-full bg-gray-100 px-2 py-2  justify-between text-black border-b-2'>
           <button className={selectedCategory === 'All' ? 'text-black font-bold border-b-2 border-yellow-500 px-4 py-2' : 'px-4 py-2'} onClick={() => setSelectedCategory('All')}>All</button>
           <button className={selectedCategory === 'Business' ? 'text-black font-bold border-b-2 border-yellow-500 px-4 py-2' : 'px-4 py-2'} onClick={() => setSelectedCategory('Business')}>Business</button>
           <button className={selectedCategory === 'Developer' ? 'text-black font-bold border-b-2 border-yellow-500 px-4 py-2' : 'px-4 py-2'} onClick={() => setSelectedCategory('Developer')}>Developer</button>
           <button className={selectedCategory === 'Other' ? 'text-black font-bold border-b-2 border-yellow-500 px-4 py-2' : 'px-4 py-2'} onClick={() => setSelectedCategory('Other')}>Other</button>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-center w-full bg-slate-00 gap-2">
-          {selectedCategory === 'All' ? (
-            <AllPosts />
-          ) : (
-            <CategoryPosts category={selectedCategory} />
-          )}
+          <div className="w-full max-h-[500px] overflow-y-auto">
+            {selectedCategory === 'All' ? (
+              <AllPosts />
+            ) : (
+              <CategoryPosts category={selectedCategory} />
+            )}
+          </div>
         </div>
       </div>
-
     </>
   );
 }

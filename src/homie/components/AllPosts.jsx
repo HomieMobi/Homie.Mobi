@@ -61,7 +61,7 @@ export default function AllPosts() {
 
               <div className="flex flex-row gap-2 ">
                 <img
-                  className="w-32 h-32"
+                  className="w-28 h-28"
                   src={post.mainImage.asset.url}
                   alt=""
                 />
