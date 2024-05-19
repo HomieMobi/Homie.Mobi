@@ -36,6 +36,19 @@ export default {
       },
     },
     {
+      title: 'Code',
+      name: 'code',
+      type: 'object',
+      fields: [
+        {
+          title: 'Code',
+          name: 'code',
+          type: 'text',
+          rows: 20, // Adjust the number of rows as needed
+        },
+      ],
+    },
+    {
       type: 'image',
       options: { hotspot: true },
       fields: [

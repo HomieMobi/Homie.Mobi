@@ -51,13 +51,12 @@ export default function OnePost() {
   const dataset = createClient.clientConfig?.dataset || "";
 
   return (
-    <div className='w-screen   flex  justify-center'>
-      <div className='w-full absolute border-2   border-black rounded md:w-1/2 lg:w-1/3 max-w-[400px]  justify-center overflow-hidden '>
-
+    <div className='w-screen flex justify-center'>
+      <div className='w-full absolute border-2 border-black rounded md:w-1/2 lg:w-1/3 max-w-[400px] justify-center overflow-hidden '>
         <div className='flex flex-col w-full h-1/6 '>
           <div className='h-1/3 flex flex-col w-full'>
             <div className='w-full h-2/6 flex flex-row items-center '>
-              <div className="font-sriracha text-2xl w-full flex justify-start pl-6  items-center h-fit py-4 ">Homie.Mobi<span className='text-red-500'>/blog</span></div>
+              <div className="font-sriracha text-2xl w-full flex justify-start pl-6 items-center h-fit py-4 ">Homie.Mobi<span className='text-red-500'>/blog</span></div>
               <div className='w-1/3 flex items-center justify-end text-3xl p-0 px-4'>
                 <CiMenuFries />
               </div>
@@ -65,14 +64,12 @@ export default function OnePost() {
             <div></div>
             <div className='w-full bg-white px-6 flex items-center'>
               <Link to="/blog" className='flex flex-col justify-center'>
-                <div className='flex flex-row w-fit items-center justify-center gap-0   shadow-md bg-black border-white border-2 px-2 rounded-lg py-2'>
+                <div className='flex flex-row w-fit items-center justify-center gap-0 shadow-md bg-black border-white border-2 px-2 rounded-lg py-2'>
                   <div className="text-yellow-500 text-2xl">
                     <BiArrowBack />
                   </div>
                   <div className='flex flex-col justify-center px-2'>
-
                     <div className='text-white'>Back</div>
-
                   </div>
                 </div>
               </Link>
@@ -81,14 +78,9 @@ export default function OnePost() {
         </div>
         <div className="w-full bg-gray-100 px-2 pt-4">
           <div className="text-2xl bg-white pt-2 flex flex-col items-center border-b-2 border-black border-double mb-0">
-            <div className=" flex justify-center"><h2 className="font-bold  w-3/4 text-center ">{title}</h2></div>
-
-
-
+            <div className=" flex justify-center"><h2 className="font-bold w-3/4 text-center ">{title}</h2></div>
             <div className="flex w-full justify-end">
-
               <p className="text-gray-800 text-lg">{formatDate(publishedAt)}</p>
-
             </div>
           </div>
           <div className="prose max-w-none bg-white p-4">
@@ -99,42 +91,46 @@ export default function OnePost() {
               serializers={{
                 types: {
                   // Serializer for images
-                  image: ({ node }) => (
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
-                      <img
-                        src={urlFor(node.asset).url()} // Render body images
-                        alt={node.alt} // If alt text is provided
-                        style={{ maxWidth: "100%", height: "auto" }} // Adjust image styles as needed
-                      />
-                    </div>
+                  image: ({ node }) => {
+                    if (node.asset) {
+                      return (
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                          <img
+                            src={urlFor(node.asset).url()}
+                            alt={node.alt}
+                            style={{ maxWidth: "100%", height: "auto", width: "100%" }}
+                          />
+                        </div>
+                      );
+                    } else {
+                      return null;
+                    }
+                  },
+                  // Serializer for custom code block
+                  code: ({ node }) => (
+                    <pre style={{ backgroundColor: "#f3f3f3", color: "#000", padding: "1rem", borderRadius: "0.5rem", overflowX: "auto" }}>
+                      {node.code}
+                    </pre>
                   ),
+
                   // Serializer for other block types
                   block: (props) => {
                     const { style = 'normal' } = props.node;
-
-                    // Check for style and apply appropriate HTML element
                     if (/^h\d/.test(style)) {
                       const level = style.replace(/[^\d]/g, '');
                       return React.createElement(style, { className: `heading-${level}` }, props.children);
                     }
-
-                    // If it's a list, render it as ul or ol
                     if (['bullet', 'number'].includes(style)) {
                       return React.createElement(style === 'bullet' ? 'ul' : 'ol', {}, props.children);
                     }
-
-                    // For other styles, render them as paragraphs
                     return <p>{props.children}</p>;
                   },
                 },
               }}
             />
-
-
-
           </div>
-
         </div>
-      </div></div>
+      </div>
+    </div>
   );
 }
