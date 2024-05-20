@@ -17,3 +17,10 @@
   overflow: hidden;
   /* Add any other custom styles for the Homie component */
 }
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}

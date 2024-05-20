@@ -32,6 +32,27 @@ export default {
               },
             ],
           },
+          {
+            title: 'Text Color',
+            name: 'textColor',
+            type: 'object',
+            fields: [
+              {
+                title: 'Color',
+                name: 'color',
+                type: 'string',
+                options: {
+                  list: [
+                    { title: 'Red', value: '#EF4444' },
+                    { title: 'Green', value: '#16803C' },
+                    { title: 'Blue', value: 'blue' },
+                    { title: 'Yellow', value: '#EAB305' },
+                    // Add more colors as needed
+                  ],
+                },
+              },
+            ],
+          },
         ],
       },
     },

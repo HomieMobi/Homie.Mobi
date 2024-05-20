@@ -101,12 +101,19 @@ const Menu = ({ isOpen, handleIconClick, toggleMenu }) => {
               </div>
             )}
             {selectedTab === 'Blog' && (
-              <div className='flex justify-center p-4'>
-                <Link to="/blog">
-                  COMING SOON
-                </Link>
+              <Link to="/blog" >
+                <div className='flex justify-start p-4 border-b-2 underline shadow-lg'>
 
-              </div>
+                  <div className='flex flex-row gap-2'>
+                    <h1 className=''>
+                      [beta]
+                    </h1>
+                    <h1 className='text-lg'> Go To Homie.Mobi<span className='text-red-500'>/blog</span></h1>
+                  </div>
+
+
+                </div>
+              </Link>
             )}
           </div>
         )}
