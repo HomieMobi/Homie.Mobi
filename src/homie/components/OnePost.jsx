@@ -53,10 +53,10 @@ export default function OnePost() {
   return (
     <div className='w-screen h-screen flex justify-center'>
       <div className='w-full absolute border-2 h-full border-black rounded md:w-1/2 lg:w-1/3 max-w-[400px] max-h-[800px] justify-center overflow-hidden'>
-        <div className='w-full h-16 flex flex-row items-center py-0 border-b-2 border-black'>
+        <div className='w-full h-16 flex flex-row items-center py-0 border-b-2 border-black bg-gray-300'>
           <div className="h-full w-1/5 flex justify-center pl-2">
             <Link to="/blog" className='flex flex-col justify-center'>
-              <div className='px-0 flex flex-row w-fit items-center justify-center gap-0 rounded-lg shadow-md border-white border-2 bg-black h-fit'>
+              <div className='px-0 flex flex-row w-fit items-center justify-center gap-0 rounded-lg shadow-md border-gray-400 border-2 bg-black h-fit'>
                 <div className="text-yellow-500 text-lg">
                   <BiArrowBack />
                 </div>
@@ -139,6 +139,10 @@ export default function OnePost() {
                           {children}
                         </span>
                       );
+                    },
+                    fontFamily: ({ mark, children }) => {
+                      const style = { fontFamily: mark.font === 'roboto' ? 'Roboto, sans-serif' : 'inherit' };
+                      return <span style={style}>{children}</span>;
                     },
                   },
                 }}

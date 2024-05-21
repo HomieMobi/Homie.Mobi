@@ -53,6 +53,24 @@ export default {
               },
             ],
           },
+          {
+            title: 'Font Family',
+            name: 'fontFamily',
+            type: 'object',
+            fields: [
+              {
+                title: 'Font',
+                name: 'font',
+                type: 'string',
+                options: {
+                  list: [
+                    { title: 'Roboto', value: 'roboto' },
+                    // Add more fonts as needed
+                  ],
+                },
+              },
+            ],
+          },
         ],
       },
     },
