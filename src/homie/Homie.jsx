@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Route, Routes } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import videoFile from "../assets/videoversion.mp4";
 
@@ -25,7 +25,8 @@ import { loadStripe } from '@stripe/stripe-js';
 function Homie() {
 
   // State and update state
-  const [selectedIcon, setSelectedIcon] = useState('house');
+  const location = useLocation();
+  const [selectedIcon, setSelectedIcon] = useState(location.state?.selectedIcon || 'house');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [price, setPrice] = useState(0);

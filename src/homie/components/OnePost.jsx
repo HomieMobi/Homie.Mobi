@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState, useCallback } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import createClient from "../../client.js";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
 import { CiMenuFries } from "react-icons/ci";
-import { Link } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import Menu from './header/menu/Menu';
 
 const builder = imageUrlBuilder(createClient);
 function urlFor(source) {
@@ -20,6 +22,18 @@ function formatDate(dateString) {
 export default function OnePost() {
   const [postData, setPostData] = useState(null);
   const { slug } = useParams();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedIcon, setSelectedIcon] = useState(null); // State to store selected icon
+  const navigate = useNavigate();
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleIconClick = useCallback((icon, product, searchTerm) => {
+    setSelectedIcon(icon); // Update selected icon state
+    navigate("/", { state: { selectedIcon: icon } }); // Navigate with selected icon state
+  }, [navigate]);
 
   useEffect(() => {
     createClient
@@ -71,9 +85,10 @@ export default function OnePost() {
             <span className='text-red-500 text-xl'>/blog</span>
           </div>
           <div className='h-full w-1/5 flex items-center justify-center text-3xl px-0'>
-            <CiMenuFries />
+            <CiMenuFries onClick={toggleMenu} className={`${isMenuOpen ? 'text-yellow-500' : 'text-black'} cursor-pointer z-40`} />
           </div>
         </div>
+        <Menu isOpen={isMenuOpen} handleIconClick={handleIconClick} toggleMenu={toggleMenu} />
         <div className="w-full overflow-y-auto bg-black h-full pb-20">
           <div className="w-full overflow-y-auto bg-gray-100 px-2 pt-4">
             <div className="text-2xl bg-white pt-2 flex flex-col items-center border-b-2 border-black border-double mb-0">
@@ -107,10 +122,11 @@ export default function OnePost() {
                       }
                     },
                     code: ({ node }) => (
-                      <pre className="bg-gray-100 text-black p-4 rounded-lg overflow-auto">
-                        <code>{node.code}</code>
-                      </pre>
+                      <SyntaxHighlighter language="javascript" style={vscDarkPlus}>
+                        {node.code}
+                      </SyntaxHighlighter>
                     ),
+
                     block: (props) => {
                       const { style = 'normal' } = props.node;
                       if (/^h\d/.test(style)) {

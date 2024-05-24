@@ -13,6 +13,7 @@ export default {
         { title: 'Heading 3', value: 'h3' },
         { title: 'Quote', value: 'blockquote' },
       ],
+
       lists: [{ title: 'Bullet', value: 'bullet' }],
       marks: {
         decorators: [
@@ -86,6 +87,7 @@ export default {
           rows: 20, // Adjust the number of rows as needed
         },
       ],
+
     },
     {
       type: 'image',
