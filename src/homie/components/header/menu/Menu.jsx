@@ -105,7 +105,7 @@ const Menu = ({ isOpen, handleIconClick, toggleMenu }) => {
                 <h1 className='text-lg'>
                   [beta]
                 </h1>
-                <div className='flex justify-start p-4 rounded-xl border-2 underline shadow-lg border-black'>
+                <div className='flex justify-start p-4 rounded-xl border-2 underline shadow-sm shadow-black border-black bg-white'>
 
                   <div className='flex flex-col gap-2'>
 
