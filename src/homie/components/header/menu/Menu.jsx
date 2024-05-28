@@ -4,6 +4,7 @@ import { AiOutlineInstagram } from "react-icons/ai";
 import { BsSend } from "react-icons/bs";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import { Link } from 'react-router-dom';
+import Test from '../../../../Test'
 
 const Menu = ({ isOpen, handleIconClick, toggleMenu }) => {
   const [selectedTab, setSelectedTab] = useState('Our Name');
@@ -15,7 +16,7 @@ const Menu = ({ isOpen, handleIconClick, toggleMenu }) => {
 
   return (
     <div className={`z-30 absolute top-0 right-0 w-full h-full transform transition-transform duration-300 flex items-end ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-      <div className="h-full w-full  p-2 py-8 border-2 bg-white border-black flex flex-col">
+      <div className="h-full w-full  p-2 py-6 border-2 bg-white border-black flex flex-col">
         <div className='border-b-2 border-black w-full flex gap-2 p-4 items-center cursor-pointer hover:bg-gray-100' onClick={() => { handleIconClick('house'); toggleMenu(); setIsDropdownOpen(false); }}>
           <ImDiamonds className='text-2xl' />
           <div className='h-fit text-2xl'>Home</div>
@@ -118,18 +119,25 @@ const Menu = ({ isOpen, handleIconClick, toggleMenu }) => {
             )}
           </div>
         )}
-        <div className='  justify-end items-start flex flex-col h-5/6 cursor-pointer hover:bg-gray-100 w-full'>
+
+        <div className='  justify-end items-start flex flex-col h-full cursor-pointer  w-full'>
           <a href="https://www.instagram.com/homie.mobi" target="_blank" rel="noopener noreferrer">
-            <div className='flex flex-row  h-14 p-4 justify-center items-center gap-4 text-xl'><AiOutlineInstagram className='text-3xl' />
+            <div className='flex flex-row  h-14 p-4 pb-0 justify-center items-center gap-4 text-xl'><AiOutlineInstagram className='text-3xl' />
               <div>Homie.Mobi</div>
             </div>
           </a>
-          <div className='flex flex-row bg h-14 p-4 justify-center items-center gap-4 text-xl' onClick={() => window.location.href = "mailto:support@homie.mobi"}>
+          <div className='flex flex-row bg h-14 p-4 pb-0 justify-center items-center gap-4 text-xl' onClick={() => window.location.href = "mailto:support@homie.mobi"}>
             <BsSend className='text-3xl' />
             <div>support@homie.mobi</div>
+
+          </div>
+          <div className='w-full flex flex-row  h-14 p-0 justify-end items-end gap-4 text-xl'>
+            <Test />
           </div>
         </div>
+
       </div>
+
     </div >
   );
 };
