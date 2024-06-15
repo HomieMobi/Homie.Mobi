@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@firebase/auth": "^1.7.3",
+    "@fontsource/inter": "^5.0.18",
+    "@fontsource/merriweather": "^5.0.13",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^6.15.20",
     "@sanity/image-url": "^1.0.2",

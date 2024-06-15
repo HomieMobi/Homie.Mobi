@@ -99,7 +99,7 @@ export default function OnePost() {
                 <p className="text-gray-800 text-lg">{formatDate(publishedAt)}</p>
               </div>
             </div>
-            <div className="prose max-w-none bg-white p-4">
+            <div className="prose max-w-none p-4">
               <BlockContent
                 blocks={body}
                 projectId={projectId}
@@ -126,21 +126,20 @@ export default function OnePost() {
                         {node.code}
                       </SyntaxHighlighter>
                     ),
-
                     block: (props) => {
                       const { style = 'normal' } = props.node;
                       if (/^h\d/.test(style)) {
                         const level = style.replace(/[^\d]/g, '');
                         return React.createElement(
                           style,
-                          { className: `text-${level === '1' ? '4xl' : level === '2' ? '3xl' : level === '3' ? '2xl' : 'xl'} font-bold my-4` },
+                          { className: `text-${level === '1' ? '4xl' : level === '2' ? '3xl' : level === '3' ? '2xl' : 'xl'} font-bold my-2` },
                           props.children
                         );
                       }
                       if (style === 'blockquote') {
                         return <blockquote className="border-l-4 border-gray-500 pl-4 my-4 italic">{props.children}</blockquote>;
                       }
-                      return <p className="my-2">{props.children}</p>;
+                      return <p className="my-0 md:my-4 py-2 md:py-2 h-fit text-start">{props.children}</p>;
                     },
                     list: ({ type, children }) => {
                       const className = type === 'bullet' ? 'list-disc ml-5' : 'list-decimal ml-5';
