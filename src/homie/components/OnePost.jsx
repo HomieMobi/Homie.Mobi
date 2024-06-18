@@ -90,7 +90,7 @@ export default function OnePost() {
         </div>
         <Menu isOpen={isMenuOpen} handleIconClick={handleIconClick} toggleMenu={toggleMenu} />
         <div className="w-full overflow-y-auto bg-black h-full pb-20">
-          <div className="w-full overflow-y-auto bg-gray-100 px-2 pt-4">
+          <div className="w-full overflow-y-auto bg-white px-2 pt-4">
             <div className="text-2xl bg-white pt-2 flex flex-col items-center border-b-2 border-black border-double mb-0">
               <div className="flex justify-center">
                 <h2 className="font-bold w-3/4 text-center">{title}</h2>
