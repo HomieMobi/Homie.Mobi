@@ -81,7 +81,7 @@ export default function OnePost() {
             </Link>
           </div>
           <div className="font-sriracha w-3/5 flex justify-center items-center h-full pr-2">
-            <span className="text-2xl">Homie.Mobi</span>
+            <span className="text-2xl">homie.mobi</span>
             <span className='text-red-500 text-xl'>/blog</span>
           </div>
           <div className='h-full w-1/5 flex items-center justify-center text-3xl px-0'>

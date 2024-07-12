@@ -6,7 +6,7 @@ function Header({ searchTerm, setSearchTerm, handleIconClick, isMenuOpen, toggle
     <div className='flex flex-col w-full h-1/6 bg-red-200'>
       {/* Header */}
       <div className='w-full h-1/2 bg-white flex flex-row '>
-        <div className="font-sriracha text-2xl w-1/2 flex justify-center items-center h-full">Homie.Mobi</div>
+        <div className="font-sriracha text-[25px] w-1/2 flex justify-center items-center pt-2 h-full">homie.mobi</div>
         <div className='w-1/2 h-full items-center justify-end text-3xl  flex px-6'>
           <CiMenuFries onClick={toggleMenu} className={`${isMenuOpen ? 'text-yellow-500' : 'text-black'} cursor-pointer z-40`} />
         </div>

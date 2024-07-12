@@ -26,7 +26,7 @@ function Blog() {
       <div className='w-full absolute border-2 h-full border-black rounded md:w-1/2 lg:w-1/3 max-w-[400px] max-h-[800px] justify-center overflow-hidden'>
         <div className='w-full h-  flex flex-row '>
           <div className="font-sriracha text-2xl w-full flex justify-start pl-6 items-center h-fit py-4">
-            Homie.Mobi<span className='text-red-500'>/blog</span>
+            homie.mobi<span className='text-red-500'>/blog</span>
           </div>
           <div className='w-1/3  flex h-fit items-center justify-end text-3xl py-4 px-6'>
             <CiMenuFries onClick={toggleMenu} className={`${isMenuOpen ? 'text-yellow-500' : 'text-black'} cursor-pointer z-40`} />

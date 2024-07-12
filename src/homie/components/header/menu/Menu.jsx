@@ -110,7 +110,7 @@ const Menu = ({ isOpen, handleIconClick, toggleMenu }) => {
 
                   <div className='flex flex-col gap-2'>
 
-                    <h1 className='text-2xl pl-4'> Go To Homie.Mobi<span className='text-red-500'>/blog</span></h1>
+                    <h1 className='text-2xl pl-4'> Go to homie.mobi<span className='text-red-500'>/blog</span></h1>
                   </div>
 
 
@@ -123,7 +123,7 @@ const Menu = ({ isOpen, handleIconClick, toggleMenu }) => {
         <div className='  justify-end items-start flex flex-col h-full cursor-pointer  w-full'>
           <a href="https://www.instagram.com/homie.mobi" target="_blank" rel="noopener noreferrer">
             <div className='flex flex-row  h-14 p-4 pb-0 justify-center items-center gap-4 text-xl'><AiOutlineInstagram className='text-3xl' />
-              <div>Homie.Mobi</div>
+              <div>homie.mobi</div>
             </div>
           </a>
           <div className='flex flex-row bg h-14 p-4 pb-0 justify-center items-center gap-4 text-xl' onClick={() => window.location.href = "mailto:support@homie.mobi"}>
